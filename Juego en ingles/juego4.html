@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Juego de preguntas con respuestas múltiples</title>
+</head>
+
+<style>
+
+	h1{
+		margin-top: 70px;            
+            text-align: center;
+            position: absolute;
+            top: 0px;
+            left: 350px;
+            color: rgb(240, 236, 236);
+	}
+
+
+	#preguntas {
+		font-size: 30px; /* aumenta el tamaño de letra */
+  text-align: justify; /* centra el texto horizontalmente */
+  padding-top: 150px; /* posiciona el texto hacia abajo */
+  text-indent: 40px;
+  margin-left: 70px;
+  color: azure;
+  border-color: black;
+  
+	}
+	
+
+	body {
+            
+            background-image: url("img/fondoobjto.jpg");
+            
+            background-size: cover;
+        }
+
+		button {
+			margin-left: 80px;
+			margin-top: 20px;
+}
+
+	h2 {
+		margin-left: 850px;
+			margin-top: -250px;
+	}
+
+	a {
+		margin-top: 350px;            
+            text-align: center;
+            position: absolute;
+            top: 0px;
+            left: 850px;
+            color: rgb(207, 16, 16);
+			font-size: 30px; /* Ajusta el tamaño de fuente a 20 píxeles */
+  line-height: 1.5; /* Ajusta el espacio entre líneas a 1.5 veces el tamaño de fuente */
+	}
+</style>
+<body>
+	<h1>SENTENCES RELATED TO OBJECTS</h1>
+
+	<ul>
+		<a href="juego5.html">Continue with routine activities</a>
+		</ul>
+	
+	<div id="preguntas">
+		<p>Juan rompió su lápiz en clase</p>
+		
+		<input type="radio" name="pregunta1" value="a">a) Juan broke his pencil in class<br>
+		<input type="radio" name="pregunta1" value="b">b) Juan break his pencil in class<br>
+		<input type="radio" name="pregunta1" value="c">c) Juan broken his pencil in class<br>
+		<input type="radio" name="pregunta1" value="d">d) Ninguna de las anteriores<br>
+	</div>
+	
+	<button onclick="verificarRespuesta()">SEND</button>
+	
+	<h2>Score: <span id="puntaje">0</span></h2>
+	
+	<script>
+		var preguntas = [
+			{
+				pregunta: "Juan rompió su lápiz en clase",
+				respuestas: [
+					{texto: "a)	Juan broke his pencil in class", correcta: true},
+					{texto: "b)	Juan break his pencil in class", correcta: false},
+					{texto: "c)	Juan broken his pencil in class ", correcta: false},
+					{texto: "d) Ninguna de las anteriores", correcta: false}
+				]
+			},
+			{
+				pregunta: "Yo compré un cuaderno la semana pasada",
+				respuestas: [
+					{texto: "a) I buy a notebook last week ", correcta: false},
+					{texto: "b)	I bought a notebook last week", correcta: true},
+					{texto: "c)	I didn’t buy a notebook last week", correcta: false},
+					{texto: "d) Ninguna de las anteriores", correcta: false}
+				]
+			},
+
+			{
+				pregunta: "El no encontró su mochila en el aula",
+				respuestas: [
+					{texto: "a)	He didn’t find his backpack in the classroom", correcta: true},
+					{texto: "b)	He found his backpack in the classroom", correcta: false},
+					{texto: "c)	He didn’t found his backpack in the classroom ", correcta: false},
+					{texto: "d) Ninguna de las anteriores", correcta: false}
+				]
+			},
+
+			{
+				pregunta: "Ella olvido su libro en la escuela",
+				respuestas: [
+					{texto: "a)	She forget her book at school", correcta: false},
+					{texto: "b)	She forgotten her book at school", correcta: false},
+					{texto: "c)	She forgot her book at school", correcta: true},
+					{texto: "d) Ninguna de las anteriores", correcta: false}
+				]
+			},
+
+			{
+				pregunta: "Natalia tenía una muñeca grande",
+				respuestas: [
+					{texto: "a)	Natalia had a big doll", correcta: true},
+					{texto: "b)	Natalia have a big doll", correcta: false},
+					{texto: "c)	Natalia didn´t have a big doll", correcta: false},
+					{texto: "d) Ninguna de las anteriores", correcta: false}
+				]
+			}
+		];
+		
+		var preguntaActual = 0;
+		var puntaje = 0;
+		
+		function mostrarPregunta() {
+			var pregunta = preguntas[preguntaActual];
+			document.getElementById("preguntas").innerHTML = "<p>" + pregunta.pregunta + "</p>";
+			for (var i = 0; i < pregunta.respuestas.length; i++) {
+				document.getElementById("preguntas").innerHTML += "<input type='radio' name='pregunta" + (preguntaActual + 1) + "' value='" + i + "'>" + pregunta.respuestas[i].texto + "<br>";
+			}
+		}
+		
+		function verificarRespuesta() {
+			var respuesta = document.querySelector('input[name="pregunta' + (preguntaActual + 1) + '"]:checked');
+			if (!respuesta) {
+				alert("Por favor selecciona una respuesta");
+				return false;
+			}
+			if (preguntas[preguntaActual].respuestas[respuesta.value].correcta) {
+				alert("¡Correcto!");
+				puntaje++;
+			} else {
+				alert("Incorrecto. La respuesta correcta es " + preguntas[preguntaActual].respuestas.find(respuesta => respuesta.correcta).texto);
+			}
+			document.getElementById("puntaje").innerHTML = puntaje;
+			preguntaActual++;
+			if (preguntaActual >= preguntas.length) {
+				alert("Fin del juego. Tu puntaje es " + puntaje);
+				location.reload();
+			} else {
+				mostrarPregunta();
+			}
+		}
+		
+		mostrarPregunta();
+	</script>

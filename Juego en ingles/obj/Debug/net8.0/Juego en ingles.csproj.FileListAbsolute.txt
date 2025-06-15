@@ -1,0 +1,14 @@
+D:\Juego en ingles\bin\Debug\net8.0\Juego en ingles.exe
+D:\Juego en ingles\bin\Debug\net8.0\Juego en ingles.deps.json
+D:\Juego en ingles\bin\Debug\net8.0\Juego en ingles.runtimeconfig.json
+D:\Juego en ingles\bin\Debug\net8.0\Juego en ingles.dll
+D:\Juego en ingles\bin\Debug\net8.0\Juego en ingles.pdb
+D:\Juego en ingles\obj\Debug\net8.0\Juego en ingles.GeneratedMSBuildEditorConfig.editorconfig
+D:\Juego en ingles\obj\Debug\net8.0\Juego en ingles.AssemblyInfoInputs.cache
+D:\Juego en ingles\obj\Debug\net8.0\Juego en ingles.AssemblyInfo.cs
+D:\Juego en ingles\obj\Debug\net8.0\Juego en ingles.csproj.CoreCompileInputs.cache
+D:\Juego en ingles\obj\Debug\net8.0\Juego en ingles.dll
+D:\Juego en ingles\obj\Debug\net8.0\refint\Juego en ingles.dll
+D:\Juego en ingles\obj\Debug\net8.0\Juego en ingles.pdb
+D:\Juego en ingles\obj\Debug\net8.0\Juego en ingles.genruntimeconfig.cache
+D:\Juego en ingles\obj\Debug\net8.0\ref\Juego en ingles.dll
